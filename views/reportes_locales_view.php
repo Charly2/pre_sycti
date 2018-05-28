@@ -15,7 +15,7 @@
 				<a href="reporte.php?reporte=<?php echo $reporte['idreporte']; ?>">
 					<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" >
 		                <div class="tile-stats" style="border-color: <?php echo $_estado[$reporte['estado']]; ?>">
-		                  <div class="icon" style="top: 15px!important;right: 30px!important">
+		                  <div class="icon" style="top: 30px!important;right: 30px!important">
 		                  	<i class="fa fa-check-square-o" style="font-size: 3em;color: <?php echo $_estado[$reporte['estado']]; ?>"></i>
 		                  </div>
 		                  <div class="count" style="color: <?php echo $_estado[$reporte['estado']]; ?>"><?php echo $reporte['idreporte']; ?></div>
