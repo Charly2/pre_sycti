@@ -12,8 +12,10 @@
         <div style="display:flex;justify-content:flex-end;" class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <span class="input-group">
 					<a href="#" class="btn btn-success" id="pdf">Reporte PDF</a>
+          <button type="button" data-toggle="modal" data-target=".modal_info"    href="#" class="btn btn-success" id="pdf">Editar</button>
 				</span>
         </div>
+
         <div style="display:flex;justify-content:flex-end;" class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <span   class="input-group <?php echo $reporte['firma']==0?'':'hide'; ?>">
 					<a href="firma.php?reporte=<?php echo $reporte['idreporte']?>" class="btn btn-success">Firma</a>
@@ -310,6 +312,74 @@
       </div>
     </div>
   </div>
+
+
+
+<div tabindex="-1" role="dialog" aria-hidden="true" style="display: none; padding-right: 17px;" class="modal fade modal_info">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          <h4 id="myModalLabel2" style="text-align: center;font-weight:bold"
+            class="modal-title">Edita tu Reporte</h4>
+        </div>
+        <div  class="modal-body">
+          <form id="comentarioForm" action="models/act.php" method="POST">
+            <h4 class="text-center">Pago</h4>
+            <div class="row">
+              <div style="margin-bottom:0;padding-top: .5em;" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback ">
+                    <label style="text-align:left" class="control-label">Cotización </label>
+                    <input name="cotizacion" type="text" placeholder="Cotización" aria-describedby="inputSuccess2Status4" class="form-control " value="<?php echo $reporte['cotizacion']; ?>">
+               </div>
+               <div style="margin-bottom:0;padding-top: .5em;" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback ">
+                    <label style="text-align:left" class="control-label">Pago </label>
+                    <input name="pago" type="text" placeholder="Pago" aria-describedby="inputSuccess2Status4" class="form-control " value="<?php echo $reporte['pago']; ?>">
+               </div>
+               <div style="margin-bottom:0;padding-top: .5em;" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback ">
+                    <label style="text-align:left" class="control-label">Fecha de Entrega </label>
+                   <input id="single_cal4" name="entrega" type="text" placeholder="First Name" aria-describedby="inputSuccess2Status4" class="form-control has-feedback-right" value="<?php echo $reporte['entrega']; ?>">
+                <span aria-hidden="true" class="fa fa-calendar form-control-feedback right">
+               </div>
+               <div style="padding-top: .5em;" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback no-margin">
+                <label style="text-align:left" class="control-label">Tipo de Pago</label>
+                <select name="tipopago" class="form-control">
+                  <option value="Pago Efectivo">Pago Efectivo</option>
+                  <option value="Pago Electronico">Pago Electronico</option>
+                </select></div>
+            </div>
+
+<input name="id" type="hidden" value="<?php echo $reporte['idreporte']?>">
+
+            <h4 class="text-center" style="margin-top: 1em;">Problema</h4>
+            <div class="row">
+              <div style="margin-bottom:0;padding-top: .1em;" class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback ">
+                    <label style="text-align:left" class="control-label">Problema </label>
+                    <textarea name="problema" type="text" placeholder="Problema" aria-describedby="inputSuccess2Status4" class="form-control "><?php echo $reporte['problema']; ?></textarea>
+               </div>
+               <div style="margin-bottom:0;padding-top: .5em;" class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback ">
+                    <label style="text-align:left" class="control-label">Solución </label>
+                    <textarea name="solucion" type="text" placeholder="Problema" aria-describedby="inputSuccess2Status4" class="form-control "><?php echo $reporte['solucion']; ?></textarea>
+               </div>
+               <div style="margin-bottom:0;padding-top: .5em;" class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback ">
+                    <label style="text-align:left" class="control-label">Observaciones </label>
+                  <textarea name="observaciones" type="text" placeholder="Problema" aria-describedby="inputSuccess2Status4" class="form-control " ><?php echo $reporte['observaciones']; ?></textarea>
+               </div>
+               
+            </div>
+
+            <div style="text-align: center;" class="col-md-12"><button id="guardar" type="submit" class="btn btn-success" style="margin-top: 1em;">Guardar </button></div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
   <script src="public/vendor/dropzone/dist/dropzone.js"></script>
   <script>
     console.dir(1);
