@@ -1,6 +1,7 @@
 <?php
 
 include '../config/config.php'; 
+include '../config/funciones.php'; 
 
 $reporte['nombre_empresa'] = $_POST['nombre'];
 $reporte['encargado'] = $_POST['encargado'];
