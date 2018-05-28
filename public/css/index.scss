@@ -1,0 +1,99 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.img-responsive{
+	width: 150px;
+	
+}
+
+.header{
+	
+	.header_logo{
+		//background: blue;
+		text-align: center;
+	}
+
+	.header_text{
+		text-align: center;
+		p{
+			margin: 0;
+		}
+		h1{
+			font-weight: 700;
+		}
+	}	
+	.header_mac{
+		//background: green;
+		text-align: center;
+		img{
+			height: 80px;
+			width: 80px;
+		}
+	}
+}
+
+.noMargin{
+	margin: 0;
+}
+
+.terminos{
+	width: 40px;
+}
+
+ul.condiciones{
+	padding-left: 0;
+	list-style-type: upper-roman;
+	li{
+		font-size: .5em;
+	}
+}
+
+ul.atributos{
+	padding-left: 0;
+	list-style-type: none;
+	li{
+		
+	}
+}
+
+
+.disp{
+	display: block;
+	width: 40%;
+	margin: auto;
+}
+
+
+
+
+.firma{
+	width: 200px;
+	height: 50px;
+	border-bottom: 1px solid;
+}
+
+.fecha{
+	    height: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.marTop{
+	margin-top: 1em;
+}
+
+.declaro{
+	line-height: 1;
+	font-size: 12px;
+
+
+}
