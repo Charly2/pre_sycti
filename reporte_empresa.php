@@ -1,16 +1,17 @@
 <?php
 session_start();
-function validasession(){
-	if (isset($_SESSION['user'])==0) {
-	header("location:login.php");
+
+if (isset($_SESSION['user'])==0) {
+		header("location:login.php");
+		
+		
 	}else{
-		return $_SESSION['user'];
+		$usuario= $_SESSION['user'];
+		
 
 	}
-}
-include 'config/config.php';
-$usuario=validasession();
 
+include 'config/config.php';
 
 
 
