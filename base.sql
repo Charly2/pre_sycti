@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2018 a las 06:42:26
+-- Tiempo de generación: 28-05-2018 a las 10:15:56
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -60,7 +60,8 @@ INSERT INTO `archivo` (`idarchivo`, `nombre`, `comentario`, `tipo`, `reporte`, `
 (16, 'solicitudCambioTT.pdf', NULL, 1, 13, 'pdf'),
 (17, 'pdf.html', NULL, 1, 13, 'html'),
 (18, '15273957208491177012185.jpg', NULL, 1, 10, 'jpg'),
-(19, 'Reporte2.pdf', NULL, 1, 10, 'pdf');
+(19, 'Reporte2.pdf', NULL, 1, 10, 'pdf'),
+(20, 'TT.pdf', NULL, 1, 3, 'pdf');
 
 -- --------------------------------------------------------
 
@@ -102,6 +103,20 @@ CREATE TABLE `comentario` (
   `publico` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`idcomentario`, `reporte`, `fecha`, `contenido`, `tipo`, `usuario`, `publico`) VALUES
+(1, 1, '0000-00-00', 'fghjfghj', 1, 4, 0),
+(2, 1, '0000-00-00', 'sdfg', 1, 4, 0),
+(3, 1, '0000-00-00', 'dsfg', 1, 4, 0),
+(4, 0, '0000-00-00', '', 1, 0, 0),
+(5, 0, '2018-05-28', '', 1, 0, 0),
+(6, 1, '2018-05-28', 'ghjkghjk', 1, 4, 1),
+(7, 1, '2018-05-28', 'Hola\r\n', 1, 1, 1),
+(8, 1, '2018-05-28', 'fghjfghj', 1, 4, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -136,7 +151,7 @@ CREATE TABLE `empresa` (
   `idempresa` int(11) NOT NULL,
   `nombre_empresa` varchar(45) DEFAULT NULL,
   `encargado` varchar(45) DEFAULT NULL,
-  `token` varchar(5) NOT NULL
+  `token` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -144,14 +159,7 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`idempresa`, `nombre_empresa`, `encargado`, `token`) VALUES
-(1, 'Google ', 'char2@google.com', ''),
-(2, 'MemberCheap', 'asd@membercheap.com', ''),
-(3, 'Sycti', 'juan@sycti.com', 'H6L1G'),
-(4, 'Oracle', NULL, '0AZKX'),
-(5, 'Maruchan', 'juan@maruchan.com', 'UX7WL'),
-(6, 'Coca Cola', 'mario@cocacola.com', 'IYZ30'),
-(7, 'Cisco ', 'mario@cisco.com', 'UORMX'),
-(8, '', '', '7RJEK');
+(1, 'Google', 'juan@google.com', 'SPXZB5');
 
 -- --------------------------------------------------------
 
@@ -170,10 +178,11 @@ CREATE TABLE `estados` (
 --
 
 INSERT INTO `estados` (`idestados`, `estado`, `color`) VALUES
-(1, 'Abierto', '#5bc0de'),
-(2, 'Proceso', '#337ab7'),
-(3, 'Terminado', '#26B99A'),
-(4, 'Con Problemas', '#d9534f');
+(1, 'Generado', '#23527c'),
+(2, 'Abierto', '#5bc0de'),
+(3, 'Proceso', '#337ab7'),
+(4, 'Terminado', '#26B99A'),
+(5, 'Con Problemas', '#d9534f');
 
 -- --------------------------------------------------------
 
@@ -221,33 +230,8 @@ CREATE TABLE `reporte` (
 --
 
 INSERT INTO `reporte` (`idreporte`, `tipo`, `inicio`, `estado`, `categoria`, `operador`, `priodidad`, `empresa`, `correo`, `nombre_cli`, `telefono`, `telefono2`, `tipopago`, `cotizacion`, `garantia`, `entrega`, `problema`, `solucion`, `tipodisp`, `numserie`, `marca`, `modelo`, `color`, `almacenamiento`, `ram`, `pass`, `pantalla`, `acces`, `observaciones`, `pago`, `respaldo`, `firma`) VALUES
-(1, 1, '27/05/2018', 'Proceso', 'Mac', 'Alex Gomes', 3, NULL, 'char2296@hotmail.com', 'Juan Carlos', '(55) 6758-2223', '', 'Pago Electronico', '344', 'dfd', '2018-05-23', 'd sdjf sdlfk asdfl sadjkf ñladskj ñasdkfjla ñsdkjf ñasdkjlf af', 'd sdjf sdlfk asdfl sadjkf ñladskj ñasdkfjla ñsdkjf ñasdkjlf afd sdjf sdlfk asdfl sadjkf ñladskj ñasdkfjla ñsdkjf ñasdkjlf af', 'MacBook Pro', 'fasd ', 'apple', 'iphone 7', 'rojo', '2gb', '3gb', '', '', '', '', '43', 0, 0),
-(2, 1, '27/05/2018', 'Proceso', 'Redes', 'Juan Carlos Sanchez', 1, NULL, 'ad', 'Juan ', '(55) 5555-5555', '(55) 5555-5555', 'Pago Efectivo', '', '', '2018-05-27', 'fasdfa', 'asdfsdf', 'iMac', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
-(3, 2, '2018/05/30', 'Proceso', 'Windows', 'Juan Carlos Sanchez', 1, 'Maruchan', 'dfgsdfg', NULL, '', '', 'Pago Efectivo', '', '', '2018-06-02', 'ewr', 'wer', 'iPhone', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
-(4, 2, '2018/05/27', 'Con Problemas', 'Windows', 'Juan Carlos Sanchez', 1, 'Google ', 'hjk', NULL, '', '', 'Pago Efectivo', '', '', '2018-05-25', 'hjk', 'hjk', 'iPhone', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
-(5, 2, '', 'Abierto', 'Windows', '', 0, 'Google ', 'sdaf', NULL, 'asdf', '', '', '', '', '0000-00-00', 'sdafasdf', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0),
-(6, 2, '18181818-MayMay-SunSun', 'Abierto', 'Soporte Técnico', 'Juan Carlos Sanchez', NULL, 'Google ', 'sadf', NULL, 'sadf', NULL, NULL, NULL, NULL, '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(7, 2, '2018-05-27', 'Proceso', 'Soporte Técnico', 'Juan Carlos Sanchez', NULL, 'Google ', 'correo@google.com', NULL, '5558899898', NULL, NULL, NULL, NULL, '2018-05-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(8, 2, '2018-05-28', 'Abierto', 'Windows', 'Alex Gomes', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(9, 2, '2018-05-28', 'Abierto', 'Windows', 'Luis Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(10, 2, '2018-05-28', 'Abierto', 'Windows', 'juan', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(11, 2, '2018-05-28', 'Abierto', '', 'Juan Carlos Sanchez', NULL, '', '', NULL, '', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(12, 2, '2018-05-28', 'Abierto', 'Windows', 'Juan Carlos Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(13, 2, '2018-05-28', 'Abierto', 'Windows', 'Juan Carlos Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(14, 2, '2018-05-28', 'Abierto', 'Windows', 'Luis Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(15, 2, '2018-05-28', 'Abierto', 'Windows', 'Juan Carlos Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(16, 2, '2018-05-28', 'Abierto', 'Windows', 'Alex Gomes', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(17, 2, '2018-05-28', 'Abierto', 'Windows', 'juan', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(18, 2, '2018-05-28', 'Abierto', 'Windows', 'Luis Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(19, 2, '2018-05-28', 'Abierto', 'Windows', 'juan', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(20, 2, '2018-05-28', 'Abierto', 'Windows', 'Alex Gomes', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(21, 2, '2018-05-28', 'Abierto', 'Windows', 'Juan Carlos Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(22, 2, '2018-05-28', 'Abierto', 'Windows', 'Juan Carlos Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(23, 2, '2018-05-28', 'Abierto', 'Windows', 'Juan Carlos Sanchez', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(24, 2, '2018-05-28', 'Abierto', 'Windows', 'juan', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(25, 2, '2018-05-28', 'Abierto', 'Windows', 'juan', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(26, 2, '2018-05-28', 'Abierto', 'Windows', 'juan', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
-(27, 2, '2018-05-28', 'Abierto', 'Windows', 'Alex Gomes', NULL, 'Google ', 'sadf', NULL, 'asdf', NULL, NULL, NULL, NULL, '2018-05-28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0);
+(1, 2, '2018-05-28', 'Proceso', 'Windows', 'Luis Sanchez', NULL, 'Google', 'juan@google.com', NULL, 'sdaf', NULL, NULL, NULL, NULL, '2018-05-28', 'Hola tengo un problema', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0),
+(2, 1, '2018-05-28', 'Con Problemas', 'Soporte Técnico', 'Luis Sanchez', 3, NULL, 'char2256@hotmail.com', 'Juan Carlos', '(55) 2356-9878', '', 'Pago Electronico', '2000', 'solo en tapa', '2018-05-28', 'de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas \"Letraset\", las cuales contenian pasajes de Lorem', '', 'MacBook Pro', 'asdf', 'apple', 'iphone x', 'rojo', '2gb', '', '1234', '', '', 'sin tapa', '1000', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -326,7 +310,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `archivo`
 --
 ALTER TABLE `archivo`
-  MODIFY `idarchivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idarchivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -338,25 +322,25 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `idcomentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcomentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
-  MODIFY `idestados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idestados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  MODIFY `idreporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idreporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
