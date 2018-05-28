@@ -28,7 +28,7 @@
 
       <div class="right_col" role="main">
         <!--h1 Usuario: #{user}-->
-        <?php  include $vis.".php"; ?>
+        <?php  include './'.$vis.".php"; ?>
       </div>
       
     </div>

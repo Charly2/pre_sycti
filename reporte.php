@@ -77,7 +77,7 @@ while($com = $result->fetch_assoc()){
 
 
 
-$vis = "reporte";
+$vis = "reporte_view";
 
 }else {
 	header("Location: index.php");
