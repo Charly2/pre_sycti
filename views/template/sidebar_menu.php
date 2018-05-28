@@ -34,7 +34,7 @@
   <div class="menu_section">
     <h3>Administración</h3>
     <ul class="nav side-menu">
-      <li><a href="usuarios.php"><i class="fa fa-users"></i> Usuarios</a>
+      <li><a href="#"><i class="fa fa-users"></i> Usuarios</a>
         
       </li>
       <li><a><i class="fa fa-cogs"></i> Configuracion</a></li>
