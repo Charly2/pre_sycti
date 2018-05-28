@@ -1,6 +1,7 @@
 
 
 <?php
+session_start();
    include 'config/config.php';
    
    
@@ -25,6 +26,7 @@
       if($count == 1) {
          
          $_SESSION['user'] = $usuario;
+         print_r($_SESSION);
          
          header("location: index.php");
       }else {
