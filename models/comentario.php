@@ -51,11 +51,11 @@ $dato = guardar($reporte,'comentario',$conn);
 
 if ($dato) {
 	echo "se guardo con el id $dato";
-	//header("Location: ../reporte.php?reporte=".$reporte['reporte']);
+	header("Location: ../reporte.php?reporte=".$reporte['reporte']);
 	die();
 
 }else{
-	//header("Location: ../reporte.php?reporte=".$reporte['reporte']);
+	header("Location: ../reporte.php?reporte=".$reporte['reporte']);
 }
 
 
