@@ -294,7 +294,7 @@
                   </ul>
                 </div>
                 <div class="col-md-6 text-center">
-                  <img class="disp" src="public/img/iphone.jpg" alt="">
+                  <img class="disp" src="public/img/<?php echo $reporte['tipodisp']; ?>.jpg" alt="">
                 </div>
                 <div class="col-md-3 text-center">
                   <strong>Garantia:</strong>
