@@ -54,6 +54,19 @@ if($reporte['firma']==1){
 
 
 
+$result = $conn->query("SELECT comentario.*,usuario.nombre FROM comentario INNER JOIN usuario on comentario.usuario= usuario.idusuario where reporte = '".$idreporte."'");
+$comentarios =[];
+while($com = $result->fetch_assoc()){
+	$com['f'] = explode('-', $com['fecha']);
+	$comentarios[] = $com;
+}
+
+
+
+
+
+
+
 $vis = "reporte_local";
 
 }else {

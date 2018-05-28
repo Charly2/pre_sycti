@@ -32,16 +32,14 @@
   <div class="container-contact100">
     <div class="wrap-contact100">
       <form class="contact100-form validate-form" action="models/nuevo_reporte_empresa_ext.php" method="POST">
-        <span class="contact100-form-title">Reporte Creado Correctamente</span>
+        <span class="contact100-form-title"><?php echo $e; ?></span>
         
         
         
       <label for="message" class="label-input100">Datos del Reporte </label>
       <div data-validate="Message is required" class="wrap-input100 validate-input">
         <div class="input100">
-          <p>Tu reporte se genero con el ID <strong><?php echo $_id; ?></strong></p>
-          <p>Recibiras un correo electronico con la infromación adicional.</p>
-          <p>Recuerda que en <strong>Sycti</strong> estamos a tus servicios.</p>
+          <?php echo $m; ?>
         </div>
         <span class="focus-input100"></span>
       </div>

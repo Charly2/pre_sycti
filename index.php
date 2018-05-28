@@ -11,7 +11,10 @@ $r = [];
 $result = $conn->query("SELECT estado FROM estados ");
 $estados=[];
 while($cat = $result->fetch_assoc()){
-	$estados[] = $cat['estado'];
+	if($cat['estado']!="Generado"){
+		$estados[] = $cat['estado'];
+	}
+	
 }
 
 
@@ -38,6 +41,22 @@ foreach ($estados as $estado) {
 	$r[$estado] = $reportes;
 	
 }
+
+
+
+
+$d = new DateTime();
+
+
+
+	$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = 'Generado' ORDER BY entrega ASC");
+	$reportesA =[];
+	while($reporter = $result->fetch_assoc()){
+		$reporter['fecha_sep'] = explode('-', $reporter['entrega']);
+		$reportesA[] = $reporter;
+	}
+
+
 
 
 

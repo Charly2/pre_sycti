@@ -104,25 +104,36 @@
               <div>
                 <ul class="messages">
                   <div style="padding-top:3em;" class="message_wrapper"></div>
+
+
+                    <?php 
+                      foreach ($comentarios as $comentario) { ?>
+                         <li><img src="files/perfil/<?php echo $comentario['usuario'] ?>.jpg" alt="Avatar" class="avatar">
+                          <div class="message_date">
+                            <h3 class="date text-info"><?php echo $comentario['f'][2] ?></h3>  
+                            <p class="month"><?php echo $mes[intval($comentario['f'][1])] ?></p>
+                          </div>
+                          <div class="message_wrapper">
+                            <h4 class="heading"><?php echo $comentario['nombre'] ?><span style="font-size: 10px;margin-left: 1rem;" class="label label-primary"><?php echo $comentario['tipo']==1?'Usuario
+                             Sycti':'Cliente' ?></span><span style="font-size: 10px;margin-left: 1rem;"
+                                class="label label-danger <?php echo $comentario['publico']==1?'disNO':'' ?>">Privado</span></h4>
+                            <blockquote class="message"><?php echo $comentario['contenido'] ?>
+                              <!--| #{comentarioU.idmensaje}-->
+                            </blockquote>
+                            <!--blockquote>
+                              <form action="/reporte_local/filescomentario/14/1" method="POST" enctype="multipart/form-data"><label for="inputImage14" title="Upload image file" class="btn btn-primary btn-upload"><input type="file" name="file" id="inputImage14" class="sr-only"><span class="fa fa-upload"></span></label>
+                                <input
+                                  type="submit" value="Subir"></form>
+                            </blockquote--><br></div>
+                        </li>
+                         
+                    <?php } ?>
                  
                   
-                  <li><img src="public/images/perfil/1.jpg" alt="Avatar" class="avatar">
-                    <div class="message_date">
-                      <h3 class="date text-info">6</h3>
-                      <p class="month">Mar</p>
-                    </div>
-                    <div class="message_wrapper">
-                      <h4 class="heading">Juan Carlos<span style="font-size: 10px;margin-left: 1rem;" class="label label-primary">Usuario Sicty</span><span style="font-size: 10px;margin-left: 1rem;"
-                          class="label label-danger disNO">Privado</span></h4>
-                      <blockquote class="message">Juan Carlos estuvo aqui
-                        <!--| #{comentarioU.idmensaje}-->
-                      </blockquote>
-                      <blockquote>
-                        <form action="/reporte_local/filescomentario/14/1" method="POST" enctype="multipart/form-data"><label for="inputImage14" title="Upload image file" class="btn btn-primary btn-upload"><input type="file" name="file" id="inputImage14" class="sr-only"><span class="fa fa-upload"></span></label>
-                          <input
-                            type="submit" value="Subir"></form>
-                      </blockquote><br></div>
-                  </li>
+                 
+
+
+
                 </ul>
                 <!-- end of user messages-->
               </div>
@@ -284,13 +295,13 @@
             class="modal-title">Ingresa tu Comentario</h4>
         </div>
         <div style="padding-bottom:5em;" class="modal-body">
-          <form id="comentarioForm" action="/comentarios/local" method="POST"><textarea id="textarea" required="required" name="body" style="min-width:100%; max-width:100%; width:100%; margin-bottom:1rem; min-height:70px;"
-              class="form-control col-md-7 col-xs-12"></textarea><input name="reporte" type="hidden" value="1"><input name="user" type="hidden" value="14">
-            <input
-              name="fecha" type="hidden" id="fecha" value="4/25/2018, 5:00:00 AM">
+          <form id="comentarioForm" action="models/comentario.php" method="POST">
+            <textarea id="textarea" required="required" name="contenido" style="min-width:100%; max-width:100%; width:100%; margin-bottom:1rem; min-height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
+            <input name="reporte" type="hidden" value="<?php echo $reporte['idreporte']?>">
+            <input name="usuario" type="hidden" value="<?php echo $usuario['idusuario'];?>">
               <div style="padding-top:4em;margin-top:2rem;" class="message_wrapper">
                 <div style="text-align: right;" class="col-md-12">
-                  <div class="checkbox"><input type="checkbox" name="isnota" value="1">Publico</div>
+                  <div class="checkbox"><input type="checkbox" name="publico" value="1">Publico</div>
                 </div>
                 <div style="text-align: center;" class="col-md-12"><button id="guardar" type="submit" class="btn btn-success">Guardar Comentario</button></div>
               </div>

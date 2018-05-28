@@ -7,7 +7,7 @@ include '../config/funciones.php';
 
 $reporte['tipo'] = 2;
 $reporte['empresa'] = $_POST['empresa'];
-$reporte['estado'] = 'Abierto';
+$reporte['estado'] = 'Generado';
 $reporte['operador'] = $_POST['operador'];
 $reporte['priodidad'] = $_POST['priodidad'];
 $reporte['correo'] = $_POST['correo'];

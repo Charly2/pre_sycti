@@ -16,9 +16,34 @@ $u = rand(0, sizeof($users)-1);
 
 
 
+
+$result = $conn->query("SELECT token FROM empresa WHERE nombre_empresa = '".$_POST['empresa']."'");
+$token = $result->fetch_assoc();
+
+
+if ($token['token']!=$_POST['token']) {
+	$e = "Tu reporte <strong>NO</strong> se pudo generar";
+	$m = '<p>No se pudo generar tu reporte, verifica tu token sea correcto. </p>';
+	include "../views/externo_ok.php";
+	exit(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $reporte['tipo'] = 2;
 $reporte['empresa'] = $_POST['empresa'];
-$reporte['estado'] = 'Abierto';
+$reporte['estado'] = 'Generado';
 $reporte['operador'] = $users[$u];
 $reporte['problema'] = $_POST['problema'];
 $reporte['correo'] = $_POST['correo'];
@@ -39,11 +64,13 @@ $_id = $d->format('dmy')."-".$dato;
 
 
 if ($dato) {
-	
+	$e = "Tu reporte se genero correctamente";
+	$m = '<p>Tu reporte se genero con el ID <strong>'.$_id.'</strong></p><p>Recibiras un correo electronico con la infromación adicional.</p><p>Recuerda que en <strong>Sycti</strong> estamos a tus servicios.</p>';
 	include "../views/externo_ok.php";
 
 }else{
-	header("Location: ../index.php");
+
+	header("Location: http://sae.dyndns.org/");
 }
 
 

@@ -22,27 +22,24 @@
       </li>
       
       
-      <li><a><i class="fa fa-calendar"></i> Calendario<span class="fa fa-chevron-down"></span></a>
+      <!--li><a><i class="fa fa-calendar"></i> Calendario<span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="#">Ver calendario</a></li>
           <li><a href="#">Nuevo evento</a></li>
         </ul>
       </li>
-      <li><a href="/chat"><i class="fa fa-inbox"></i> Mensajeria</a></li>
+      <li><a href="/chat"><i class="fa fa-inbox"></i> Mensajeria</a></li-->
     </ul>
   </div>
   <div class="menu_section">
     <h3>Administración</h3>
     <ul class="nav side-menu">
-      <li><a><i class="fa fa-users"></i> Usuarios<span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><a href="/usuario/new">Nuevo usuario</a></li>
-          <li><a href="/usuario">Administrar usuarios</a></li>
-        </ul>
+      <li><a href="usuarios.php"><i class="fa fa-users"></i> Usuarios</a>
+        
       </li>
       <li><a><i class="fa fa-cogs"></i> Configuracion</a></li>
-      <li><a><i class="fa fa-bullhorn"></i> Feedback</a></li>
-      <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page<span class="label label-success pull-right">Coming Soon</span></a></li>
+      
+     
     </ul>
   </div>
 </div>

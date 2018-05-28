@@ -28,6 +28,8 @@ while($cat = $result->fetch_assoc()){
 
 
 
+
+
 $vis = "reportes_locales_view";
 
 
