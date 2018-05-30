@@ -1,7 +1,36 @@
 <?php 
 
 include '../config/config.php'; 
-include '../config/funciones.php'; 
+include '../config/funciones.php';
+require ('class.phpmailer.php');
+include("class.smtp.php"); 
+
+function sendmail($correo,$nombre) {
+    
+	$mail = new PHPMailer();
+	$mail->IsSMTP();
+	$mail->SMTPDebug  = 0;
+	$mail->Host       = 'smtp.gmail.com';
+	$mail->Port       = 587;
+	$mail->SMTPSecure = 'tls';
+	$mail->SMTPAuth   = true;
+	$mail->Username   = "reportes@sycti.net";
+	$mail->Password   = "TeCa1137";
+	$mail->SetFrom('reportes@sycti.net', $nombre);
+	$mail->AddAddress($correo, $nombre);
+	$mail->AddCC("reportes@sycti.net","Equipo Sycti");
+	$mail->Subject = 'Tu reprote se realizo correctamente';
+	$mail->MsgHTML('<h1>asd</h1>');
+	
+	$mail->AltBody = 'Tu reprote se realizo correctamente';
+	if(!$mail->Send()) {
+	  return 0;
+	} else {
+	  return 1;
+	}
+}
+
+
 
 function guardar($data,$table,$conn)
 {
@@ -71,6 +100,9 @@ $dato = guardar($reporte,'reporte',$conn);
 
 if ($dato) {
 	echo "se guardo con el id $dato";
+
+	echo sendmail($reporte['correo'],$reporte['nombre_cli']);
+
 	header("Location: ../reporte.php?reporte=".$dato);
 	die();
 
