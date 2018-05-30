@@ -2,6 +2,36 @@
 
 include '../config/config.php'; 
 include '../config/funciones.php'; 
+require ('class.phpmailer.php');
+include("class.smtp.php"); 
+
+function sendmail($correo,$nombre,$data) {
+    
+	$mail = new PHPMailer();
+	$mail->IsSMTP();
+	$mail->SMTPDebug  = 0;
+	$mail->Host       = 'smtp.gmail.com';
+	$mail->Port       = 587;
+	$mail->SMTPSecure = 'tls';
+	$mail->SMTPAuth   = true;
+	$mail->Username   = "reportes@sycti.net";
+	$mail->Password   = "TeCa1137";
+	$mail->SetFrom('reportes@sycti.net', $nombre);
+	$mail->AddAddress($correo, $nombre);
+	
+	$mail->AddCC("reportes@sycti.net","Equipo Sycti");
+	$mail->Subject = 'Tu reprote se realizo correctamente';
+	$mail->MsgHTML($data);
+	$mail->CharSet = 'UTF-8';
+	
+	$mail->AltBody = 'Tu reprote se realizo correctamente';
+	if(!$mail->Send()) {
+	  return 0;
+	} else {
+	  return 1;
+	}
+}
+
 function guardar($data,$table,$conn)
 {
 	$keys = array_keys($data);
@@ -92,9 +122,15 @@ $dato = guardar($reporte,'reporte',$conn);
 $_id = $d->format('dmy')."-".$dato;
 
 
+
+include 'tmpe.php';
+
+
 if ($dato) {
 	$e = "Tu reporte se genero correctamente";
 	$m = '<p>Tu reporte se genero con el ID <strong>'.$_id.'</strong></p><p>Recibiras un correo electronico con la infromación adicional.</p><p>Recuerda que en <strong>Sycti</strong> estamos a tus servicios.</p>';
+
+	sendmail($reporte['correo'],$reporte['empresa'],$data);
 	include "../views/externo_ok.php";
 
 }else{

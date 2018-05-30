@@ -5,7 +5,7 @@ include '../config/funciones.php';
 require ('class.phpmailer.php');
 include("class.smtp.php"); 
 
-function sendmail($correo,$nombre) {
+function sendmail($correo,$nombre,$data) {
     
 	$mail = new PHPMailer();
 	$mail->IsSMTP();
@@ -20,7 +20,8 @@ function sendmail($correo,$nombre) {
 	$mail->AddAddress($correo, $nombre);
 	$mail->AddCC("reportes@sycti.net","Equipo Sycti");
 	$mail->Subject = 'Tu reprote se realizo correctamente';
-	$mail->MsgHTML('<h1>asd</h1>');
+	$mail->MsgHTML($data);
+	$mail->CharSet = 'UTF-8';
 	
 	$mail->AltBody = 'Tu reprote se realizo correctamente';
 	if(!$mail->Send()) {
@@ -96,12 +97,23 @@ $reporte['pago'] = $_POST['pago'];
 
 
 
+
+
 $dato = guardar($reporte,'reporte',$conn);
+
+
+
+$_id = $d->format('dmy')."-".$dato;
+
+include 'tmp.php';
 
 if ($dato) {
 	echo "se guardo con el id $dato";
 
-	echo sendmail($reporte['correo'],$reporte['nombre_cli']);
+	//echo $data;
+
+	echo sendmail($reporte['correo'],$reporte['nombre_cli'],$data);
+
 
 	header("Location: ../reporte.php?reporte=".$dato);
 	die();
