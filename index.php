@@ -46,7 +46,19 @@ while($cat = $result->fetch_assoc()){
 
 foreach ($estados as $estado) {
 
+	
+
+	if ($usuario['rol'] == 1) {
 	$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' ORDER BY entrega ASC");
+	echo "SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' ORDER BY entrega ASC";	
+
+	}else{
+		$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' and operador = '".$usuario['nombre']."' ORDER BY entrega ASC");
+		echo "SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' and operador = '".$usuario['nombre']."' ORDER BY entrega ASC";
+	}
+
+
+
 	$reportes =[];
 	while($reporte = $result->fetch_assoc()){
 		$reporte['fecha_sep'] = explode('-', $reporte['entrega']);
@@ -61,11 +73,17 @@ foreach ($estados as $estado) {
 
 
 
+
+
 $d = new DateTime();
 
-
-
+	if ($usuario['rol'] == 1) {
 	$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = 'Generado' ORDER BY entrega ASC");
+	}else{
+		$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = 'Generado' and operador = '".$usuario['nombre']."' ORDER BY entrega ASC");
+	}
+
+	
 	$reportesA =[];
 	while($reporter = $result->fetch_assoc()){
 		$reporter['fecha_sep'] = explode('-', $reporter['entrega']);

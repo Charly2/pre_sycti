@@ -15,6 +15,15 @@ include 'config/config.php';
 
 
 
+print_r($usuario);
+
+
+
+if ($usuario['rol'] == 1) {
+	$result = $conn->query("SELECT idreporte,estado,nombre_cli,correo,modelo,tipodisp FROM reporte WHERE tipo = 1");
+}else{
+	$result = $conn->query("SELECT idreporte,estado,nombre_cli,correo,modelo,tipodisp FROM reporte WHERE tipo = 1 and operador = '".$usuario['nombre']."'");
+}
 
 
 
@@ -22,7 +31,8 @@ include 'config/config.php';
 
 
 
-$result = $conn->query("SELECT idreporte,estado,nombre_cli,correo,modelo,tipodisp FROM reporte WHERE tipo = 1");
+
+
 $reportes =[];
 while($reporte = $result->fetch_assoc()){
 	$reportes[] = $reporte;

@@ -18,7 +18,7 @@ $idreporte = $_GET['reporte'];
 
 
 
-$result = $conn->query("SELECT * FROM reporte where idreporte = '$idreporte'");
+$result = $conn->query("SELECT * FROM reporte where idreporte = '$idreporte' ");
 $reporte = $result->fetch_assoc();
 
 if($result->num_rows != 0){

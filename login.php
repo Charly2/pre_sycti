@@ -14,7 +14,7 @@ session_start();
       
       
     $sql = "SELECT id FROM admin WHERE username = '$user' and passcode = '$pass'";
-	$result = $conn->query("SELECT idusuario,correo,nombre FROM usuario where correo = '$user' AND pass = '$pass'");
+	$result = $conn->query("SELECT idusuario,correo,nombre,rol FROM usuario where correo = '$user' AND pass = '$pass'");
 	$usuario = $result->fetch_assoc();
 
 
