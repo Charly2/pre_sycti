@@ -5,3 +5,32 @@ CREATE TABLE `usuario` (
   `pass` varchar(10) DEFAULT NULL,
   `rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+INSERT INTO `usuario` (`idusuario`, `correo`, `nombre`, `pass`, `rol`) VALUES
+(1, 'admin@sycti.com', 'David de la Cruz Mari', 'D4v1d0', 1),
+(2, 'ramses@sycti.com', 'Ramses Aleman', 'R4ms3s', 0),
+(3, 'miguel@sycti.com', 'Miguel Esteban', 'M1gu3l', 0),
+(4, 'guadalupe@sycti.com', 'Guadalupe Garcia', 'Gu4d4lup3', 1),
+(5, 'monica@sycti.com', 'Monica Mercado', 'Mon1c4', 0);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idusuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
