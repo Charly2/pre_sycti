@@ -15,7 +15,6 @@ include 'config/config.php';
 
 
 
-print_r($usuario);
 
 
 
