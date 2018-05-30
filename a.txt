@@ -1,0 +1,7 @@
+CREATE TABLE `usuario` (
+  `idusuario` int(11) NOT NULL,
+  `correo` varchar(90) DEFAULT NULL,
+  `nombre` varchar(60) DEFAULT NULL,
+  `pass` varchar(10) DEFAULT NULL,
+  `rol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
