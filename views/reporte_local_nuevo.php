@@ -15,7 +15,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-            <form action="models/nuevo_reporte_local.php" method="POST">
+            <form id="newLocal" action="models/nuevo_reporte_local.php" method="POST">
             <div id="wizard_verticle" class="form_wizard wizard_verticle">
               <ul class="list-unstyled wizard_steps">
                 <li>
@@ -217,6 +217,22 @@
       </div>
     </div>
 </div>
-          
+<style>
+  .buttonFinish,.buttonFinish:hover,.buttonFinish:focus,.buttonFinish:active{
+    background:#26B99A; 
+    border-color: #26B99A;
+    color: white;
+  }
+  .buttonNext,.buttonNext:hover,.buttonNext:focus,.buttonNext:active {
+    background: #34495E !important;
+    border-color: #34495E !important;
+  }
+</style>
 
-                  
+<script>
+  var formLocal = $('#newLocal');
+  formLocal.on('submit',function (argument) {
+    $('.buttonFinish').addClass('buttonDisabled ');
+
+  });
+</script>
