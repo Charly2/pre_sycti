@@ -469,6 +469,8 @@
 
     function ch_cat(e){
        //$('#estado_actual').hide();
+       
+        
     
         $.ajax({
             type: "POST",
@@ -485,6 +487,7 @@
             styling: 'bootstrap3',
             delay: 1000
         });
+           // App.ws.emit('msj',$('#cat_val').val());
         })
     
     }
@@ -498,7 +501,17 @@
     
     var myDropzone = new Dropzone("#formARchivos", {url: "file.php?"});
     myDropzone.on("success", function (file) {
+        if (file.xhr.response=="no") {
+          new PNotify({
+                      title: 'Error',
+                      text: 'Tu archivo ' + file.name + ' NO se subio correctamente',
+                      type: 'danger',
+                      styling: 'bootstrap3',
+                      delay: 2000
+                  });
+        }
         console.log(file.xhr.response);
+       
         setTimeout(function(){
             myDropzone.removeFile(file);
         }, 3000);
