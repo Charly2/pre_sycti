@@ -4,13 +4,18 @@
     <h3>General</h3>
     <ul class="nav side-menu">
       <li><a href="index.php"><i class="fa fa-home"></i> Inicio</a></li>
-      <li><a ><i class="fa fa-edit"></i> Reportes<span class="fa fa-chevron-down"></span></a>
+      <li><a ><i class="fa fa-edit"></i> Nuevo<span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="nuevo_reporte_local.php">Nuevo reporte local</a></li>
           <li><a href="nuevo_reporte_empresa.php">Nuevo reporte empresa</a></li>
 
 
           
+          
+        </ul>
+      </li>
+      <li><a><i class="fa fa-calendar"></i> Ver Reportes<span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
           <li><a href="reporte_local.php">Reportes locales</a></li>
           <li class="hide"><a href="reporte.php">Reportes locales</a></li>
           <li><a href="reporte_empresa.php">Reportes empresariales</a></li>
@@ -22,13 +27,8 @@
       </li>
       
       
-      <!--li><a><i class="fa fa-calendar"></i> Calendario<span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><a href="#">Ver calendario</a></li>
-          <li><a href="#">Nuevo evento</a></li>
-        </ul>
-      </li>
-      <li><a href="/chat"><i class="fa fa-inbox"></i> Mensajeria</a></li-->
+      
+      <!--li><a href="/chat"><i class="fa fa-inbox"></i> Mensajeria</a></li-->
     </ul>
   </div>
   <div class="menu_section">

@@ -20,3 +20,4 @@
 <script src="public/vendor/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 <!-- Custom Theme Scripts-->
 <script src="public/build/js/custom.js"></script>
+

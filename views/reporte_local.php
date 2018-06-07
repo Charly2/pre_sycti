@@ -357,7 +357,7 @@
     
     function ch_prio(e){
        //$('#estado_actual').hide();
-        
+
         $.ajax({
             type: "POST",
             url: 'models/actualizar_reporte.php',
@@ -372,6 +372,7 @@
             styling: 'bootstrap3',
             delay: 1000
         });
+
         })
     
     }
@@ -399,6 +400,7 @@
 
     function ch_cat(e){
        //$('#estado_actual').hide();
+        
     
         $.ajax({
             type: "POST",

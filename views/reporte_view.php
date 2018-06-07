@@ -487,7 +487,7 @@
             styling: 'bootstrap3',
             delay: 1000
         });
-           // App.ws.emit('msj',$('#cat_val').val());
+            App.ws.emit('msj',$('#cat_val').val());
         })
     
     }

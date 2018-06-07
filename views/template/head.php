@@ -49,6 +49,9 @@
   <script src="public/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
   <script src="public/vendor/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
   <script src="public/js/notify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+
+<script src="public/js/not.js"></script>
   <style>
     .nav.side-menu > li.current-page, .nav.side-menu > li.active {
         border-right: 5px solid #4ec1e0;
