@@ -29,7 +29,14 @@ if($reporte['firma']==1){
 	fclose($myfile);
 }
 
- include 'views/plantilla.php'; 
+
+
+if ($reporte['tipo'] == 1) {
+	include 'views/plantilla.php'; 	
+}else{
+	include 'views/plantilla_e.php'; 
+}
+ 
 
 
 
