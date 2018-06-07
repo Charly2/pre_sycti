@@ -20,6 +20,7 @@
   <link href="public/vendor/pnotify/dist/pnotify.nonblock.css" rel="stylesheet"/>
   <link href="public/vendor/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet"/>
   <link href="public/css/juan.css" rel="stylesheet"/>
+  <link href="public/css/sweetalert.css" rel="stylesheet"/>
   <script src="public/vendor/jquery/dist/jquery.min.js"></script>
   <script src="public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="public/vendor/fastclick/lib/fastclick.js"></script>
@@ -50,6 +51,7 @@
   <script src="public/vendor/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
   <script src="public/js/notify.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+  <script src="public/js/sweetalert.min.js"></script>
 
 <script src="public/js/not.js"></script>
   <style>

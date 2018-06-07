@@ -6,20 +6,24 @@
   <div>
     <div class="page-title">
       <div class="title_left">
-        <h3>Reporte cliente local<small> REPLOC 1</small></h3>
+        <h3>Reporte <?php echo $reporte['tipo']==1?'Local':'Empresarial' ?><small> REPLOC 1</small></h3>
       </div>
       <div class="title_right">
-        <div style="display:flex;justify-content:flex-end;" class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+        <div style="display:flex;justify-content:flex-end;" class="col-md-10 col-sm-5 col-xs-12 form-group pull-right top_search">
           <span class="input-group">
 					<a href="#" class="btn btn-success" id="pdf">Reporte PDF</a>
+          
           <button type="button" data-toggle="modal" data-target=".modal_info"    href="#" class="btn btn-success" id="pdf">Editar</button>
+          <a href="firma.php?reporte=<?php echo $reporte['idreporte']?>" class="btn btn-success <?php echo $reporte['firma']==0?'':'hide'; ?>">Firma</a>
+            <button href="" onclick="eliminar(<?php echo $reporte['idreporte']?>)" class="btn btn-danger" id="pdf">Eliminar</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Pagar
+            </button>
 				</span>
         </div>
 
         <div style="display:flex;justify-content:flex-end;" class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <span   class="input-group <?php echo $reporte['firma']==0?'':'hide'; ?>">
-					<a href="firma.php?reporte=<?php echo $reporte['idreporte']?>" class="btn btn-success">Firma</a>
-				</span>
+          
         </div>
       </div>
     </div>
@@ -27,7 +31,7 @@
       <div class="col-md-12 contenido_repo">
         <div class="x_panel">
           <div class="x_title">
-            <h2>Reporte Local</h2>
+            <h2>Reporte <?php echo $reporte['tipo']==1?'Local':'Empresarial' ?></h2>
             <div class="clearfix">
             </div>
           </div>
@@ -314,6 +318,32 @@
   </div>
 
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Pagar o abonar</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="    position: absolute;top: 15px;right: 15px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>Cotización: <strong> $<?php echo $reporte['cotizacion'] ?></strong></h4>
+        <h4>Pagado: <strong>  $<?php echo $reporte['pago'] ?></strong></h4>
+        <h4>Abono: <strong> $<input type="number" id="abo"></strong></h4>
+        <input type="hidden" id="coti" value="<?php echo $reporte['pago'] ?>">
+        <hr>
+        <h4>Total:<strong> $ <span id="to"><?php echo $reporte['pago'] ?></span></strong></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="setab()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <div tabindex="-1" role="dialog" aria-hidden="true" style="display: none; padding-right: 17px;" class="modal fade modal_info">
     <div class="modal-dialog modal-md">
@@ -536,7 +566,81 @@
     });
     
 
+    function eliminar(e){
+      
 
+      swal({
+        title: "Estas seguro?",
+        text: "Deseas eliminar el reporte "+e+"!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Si , Borrar!",
+        closeOnConfirm: false
+      },
+      function(){
+        $.post( "models/borrar.php", { reporte: e }).done(function( data ) {
+          console.log(data);
+          if (data == '1') {
+            swal("Eliminado!", "Se elimino correctamente", "success");
+            setTimeout(()=>{
+              window.location.href = "index.php";
+            },1000);
+            
+          }else{
+            swal("No se Elimino!", "No se pudo eliminar correctamente", "warning");
+          }
+        });
+        
+      });
+    }
+
+    $('#abo').on('change',function(){
+      abonar();
+    });
+    $('#abo').on('keyup',function(){
+      abonar();
+      
+    });
+    $('#abo').on('keydown',function(){
+      abonar();
+    });
+    var tob =0;
+
+    function abonar(){
+      var ab = parseInt($('#abo').val());
+      var total = parseInt($('#coti').val()) + ab;
+
+      if (total==NaN) {
+        ta = total;
+      }else{
+        ta =0;
+      }
+      console.log(total);
+      tob= total;
+      $('#to').html(total);
+    }
+
+    function setab(){
+      
+      $.post( "models/abonar.php", { id: <?php echo $reporte['idreporte']?> , pago : tob}).done(function( data ) {
+          console.log(data);
+          if (data == '1') {
+            $('#exampleModal').modal('hide');
+            swal("Abono correctamente!", "Se abono correctamente", "success");
+            setTimeout(()=>{
+              window.location.reload();;
+            },1000);
+            
+          }else{
+            $('#exampleModal').modal('hide');
+            swal("No se abono!", "No se pudo abonar correctamente", "warning");
+          }
+        });
+      
+
+      
+    }
     
   </script>
 

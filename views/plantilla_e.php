@@ -32,7 +32,7 @@
                 <img class="img-responsive"  src="public/img/logo.png" alt="">
               </div>
               <div class="col-md-8 header_text">
-                <h1> SERVICIO TECNICO MAC </h1>
+                <h1> Sistemas y Consultoria TI </h1>
                 <p>Av. Revolución 553-B, San Pedro de los Pinos, C.P. 09800, Benito Juárez, CDMX </p>
                 <p><strong>Telefonos:</strong> 75917735 y 75917736 <strong>Whatsapp:</strong> 5571469096</p>
                 <p>Lunes a Viernes de <strong>09:00 a 19:00 hrs</strong> y Sabados de <strong> 09:00  a 14:00 hrs</strong></p>

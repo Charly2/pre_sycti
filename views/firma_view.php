@@ -13,12 +13,15 @@
   <link href="public/build/css/custom.css" rel="stylesheet">
 </head>
 
+
 <body class="firma">
   <div class="hf"><img src="public/images/logo.png" class="logo">
     <h1 id="titulo">Ingresa Aquí tu Firma</h1>
   </div><canvas id="test" style=""></canvas><img id="img">
   <div id="gen" style="margin-top: 5px;" class="links">
-    <a href="#" onclick='$("#test").data("jqScribble").clear();'>Borrar	</a>
+    <a class="azul" href="reporte.php?reporte=<?php echo $id_reporte;?>" >Atras </a>
+    <a href="#" class="rojo" onclick='$("#test").data("jqScribble").clear();'>Borrar	</a>
+
     <a href="#" onclick='save()'>Guardar</a></div>
   <div id="save"
     style="margin-top: 10px;" class="links"><a href="#" onclick="window.location.reload();">Cancelar 	</a><a href="#" onclick="savePost()">Firmar</a></div>
