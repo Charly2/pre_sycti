@@ -11,12 +11,12 @@
       <div class="title_right">
         <div style="display:flex;justify-content:flex-end;" class="col-md-10 col-sm-5 col-xs-12 form-group pull-right top_search">
           <span class="input-group">
-					<a href="#" class="btn btn-success" id="pdf">Reporte PDF</a>
+					<a href="#" class="btn btn-success" id="pdf" style="margin-top: 1em;">Reporte PDF</a>
           
-          <button type="button" data-toggle="modal" data-target=".modal_info"    href="#" class="btn btn-success" id="pdf">Editar</button>
-          <a href="firma.php?reporte=<?php echo $reporte['idreporte']?>" class="btn btn-success <?php echo $reporte['firma']==0?'':'hide'; ?>">Firma</a>
-            <button href="" onclick="eliminar(<?php echo $reporte['idreporte']?>)" class="btn btn-danger" id="pdf">Eliminar</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" data-toggle="modal" data-target=".modal_info"    href="#" class="btn btn-success" id="pdf" style="margin-top: 1em;" >Editar</button>
+          <a href="firma.php?reporte=<?php echo $reporte['idreporte']?>" class="btn btn-success <?php echo $reporte['firma']==0?'':'hide'; ?>" style="margin-top: 1em;">Firma</a>
+            <button href="" onclick="eliminar(<?php echo $reporte['idreporte']?>)" class="btn btn-danger" id="pdf" style="margin-top: 1em;">Eliminar</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin-top: 1em;">
               Pagar
             </button>
 				</span>
