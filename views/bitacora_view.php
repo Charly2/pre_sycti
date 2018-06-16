@@ -30,7 +30,7 @@
                       <thead>
                         <tr>
                           <th class="text-center">ID</th>
-                          <th>Empresa</th>
+                          <th>Empresa/Cliente</th>
                           <th>Fecha</th>
                           <th>Categoria</th>
                           <th>Dispositivo</th>
@@ -44,7 +44,7 @@
 
                           <tr onclick="verreporte(<?php echo $reporte['idreporte'] ?>)">
                             <td style="text-align: center; color:white;background:<?php echo $_estado[$reporte['estado']];?> "><?php echo $reporte['idreporte'] ?></td>
-                            <td><?php echo $reporte['correo'] ?></td>
+                            <td><?php echo $reporte['tipo']==1?$reporte['correo']:$reporte['empresa'] ?></td>
                             <td><?php echo $reporte['inicio'] ?></td>
                             <td><?php echo $reporte['categoria'] ?></td>
                             <td><?php echo $reporte['tipodisp'] ?></td>
