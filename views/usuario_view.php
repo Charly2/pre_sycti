@@ -10,7 +10,7 @@
 	          <div class="x_content">
 	          	<div class="col-md-6 col-md-offset-3 text-center" >
 	          		<div class="col-md-12 col-xs-12 widget widget_tally_box">
-                        <div class="x_panel fixed_height_390">
+                        <div class="x_panel ">
                           <div class="x_content">
 
                             <div class="flex">

@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a class="user-profile dropdown-toggle" href="javascript:;" data-toggle="dropdown" aria-expanded="false">
-            <img src="files/perfil/<?php echo $usuario['idusuario'];?>.jpg" alt="">
+            <img src="files/perfil/<?php echo $usuario['idusuario'];?>.jpg" alt="" >
             <?php echo $usuario['nombre'];?><span class="fa fa-angle-down" style="margin-left:.5em"></span></a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
             <li><a href="javascript:;"> Perfil</a></li>

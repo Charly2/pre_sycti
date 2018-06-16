@@ -27,7 +27,7 @@ $r = [];
 $result = $conn->query("SELECT estado FROM estados ");
 $estados=[];
 while($cat = $result->fetch_assoc()){
-	if($cat['estado']!="Generado"){
+	if($cat['estado']!="Generado" && $cat['estado']!="Finalizado"){
 		$estados[] = $cat['estado'];
 	}
 	
@@ -49,12 +49,12 @@ foreach ($estados as $estado) {
 	
 
 	if ($usuario['rol'] == 1) {
-	$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' ORDER BY entrega ASC");
-	echo "SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' ORDER BY entrega ASC";	
+	$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."'  ORDER BY entrega ASC");
+	
 
 	}else{
 		$result = $conn->query("SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' and operador = '".$usuario['nombre']."' ORDER BY entrega ASC");
-		echo "SELECT idreporte,tipo,nombre_cli,empresa,estado,entrega,problema FROM reporte WHERE estado = '".$estado."' and operador = '".$usuario['nombre']."' ORDER BY entrega ASC";
+	
 	}
 
 

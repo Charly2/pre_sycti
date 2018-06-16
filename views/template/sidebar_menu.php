@@ -21,9 +21,9 @@
           <li><a href="reporte_empresa.php">Reportes empresariales</a></li>
         </ul>
       </li>
-      <li><a href="categorias.php"><i class="fa fa-archive"></i> Categorias</a>
-        <li><a href="empresas.php"><i class="fa fa-archive"></i> Empresas</a>
-        
+      <li><a href="bitacora.php"><i class="fa fa-archive"></i> Bitacora</a></li>
+      <li><a href="categorias.php"><i class="fa fa-list-ul"></i> Categorias</a>
+        <li><a href="empresas.php"><i class="fa fa-building"></i> Empresas</a>
       </li>
       
       
