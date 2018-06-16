@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if (isset($_SESSION['user'])==0) {
 		header("location:login.php");
 		
@@ -30,11 +31,11 @@ $dir_subida = 'files/app/';
 
 
 $fichero_subido = $dir_subida . basename($conn->insert_id.".".$ext[1]);
-
-if (move_uploaded_file($_FILES['file']['tmp_name'], $fichero_subido)) {
+$m =move_uploaded_file($_FILES['file']['tmp_name'], $fichero_subido);
+if ($m) {
     echo $conn->insert_id;
 } else {
-    echo "¡Posible ataque de subida de ficheros!\n";
+    echo "no";
 }
 
 

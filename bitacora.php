@@ -34,7 +34,7 @@ while($cat = $result->fetch_assoc()){
 
 
 
-$vis = "bitacora";
+$vis = "bitacora_view";
 
 
 

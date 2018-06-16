@@ -3,7 +3,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "123";
+$password = "";
 $dbname = "sycti";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
