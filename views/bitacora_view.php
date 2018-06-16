@@ -44,7 +44,7 @@
 
                           <tr onclick="verreporte(<?php echo $reporte['idreporte'] ?>)">
                             <td style="text-align: center; color:white;background:<?php echo $_estado[$reporte['estado']];?> "><?php echo $reporte['idreporte'] ?></td>
-                            <td><?php echo $reporte['tipo']==1?$reporte['correo']:$reporte['empresa'] ?></td>
+                            <td><?php echo $reporte['tipo']==1?$reporte['nombre']:$reporte['empresa'] ?></td>
                             <td><?php echo $reporte['inicio'] ?></td>
                             <td><?php echo $reporte['categoria'] ?></td>
                             <td><?php echo $reporte['tipodisp'] ?></td>
