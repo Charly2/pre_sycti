@@ -37,7 +37,7 @@
       <li><a href="usuario.php"><i class="fa fa-users"></i> Perfil</a>
         
       </li>
-      <li><a><i class="fa fa-cogs"></i> Configuracion</a></li>
+      <li><a href="foto_perfil.php"><i class="fa fa-cogs"></i> Foto de Perfil</a></li>
       
      
     </ul>
