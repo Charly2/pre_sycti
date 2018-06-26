@@ -112,7 +112,7 @@
 	}
 
 	$('#nuevo_disp').on('submit',function (argument) {
-		alert(1);
+		
 	});
 
 	
