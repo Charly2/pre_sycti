@@ -89,17 +89,23 @@ $reporte['problema'] = $_POST['problema'];
 $reporte['solucion'] = $_POST['solucion'];
 $reporte['entrega'] = $_POST['entrega'];
 $reporte['garantia'] = $_POST['garantia'];
-$reporte['cotizacion'] = $_POST['cotizacion'];
+$reporte['cotizacion'] = $_POST['cotizacion']==""?0:$_POST['cotizacion'];  
 $reporte['tipopago'] = $_POST['tipopago'];
-$reporte['pago'] = $_POST['pago'];
+$reporte['pago'] = $_POST['pago']==""?0:$_POST['pago'];
+$reporte['cod_rand'] =  $_POST['cod_rand'];
+
+$noti['tipo'] = 1;
+$noti['cod'] = $_POST['cod_rand'];
 
 
 
-
-
+print_r($reporte);
 
 
 $dato = guardar($reporte,'reporte',$conn);
+
+$not = guardar($noti,'noti',$conn);
+
 
 
 
@@ -107,16 +113,16 @@ $_id = $d->format('dmy')."-".$dato;
 
 include 'tmp.php';
 
-if ($dato) {
+
+if ($dato && $not) {
 	echo "se guardo con el id $dato";
 
-	//echo $data;
-
-	echo sendmail($reporte['correo'],$reporte['nombre_cli'],$data);
+	
+	//echo sendmail($reporte['correo'],$reporte['nombre_cli'],$data);
 
 
 	header("Location: ../reporte.php?reporte=".$dato);
-	die();
+	
 
 }else{
 	header("Location: ../index.php");
