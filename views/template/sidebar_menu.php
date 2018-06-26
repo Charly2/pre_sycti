@@ -25,6 +25,7 @@
       <li><a href="categorias.php"><i class="fa fa-list-ul"></i> Categorias</a>
         <li><a href="empresas.php"><i class="fa fa-building"></i> Empresas</a>
       </li>
+      <li><a href="nuevo_disp.php"><i class="fa fa-laptop"></i> Nuevo Dispositivo</a></li>
       
       
       
