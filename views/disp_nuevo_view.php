@@ -86,7 +86,7 @@
 	function editar(th,t) {
 		
 		$('#valid').html(t);
-		console.dir(document.getElementById('valid_img').src="files/dis/"+t+".jpg")
+		console.dir(document.getElementById('valid_img').src="public/img/"+t+".jpg")
 
 		
 
