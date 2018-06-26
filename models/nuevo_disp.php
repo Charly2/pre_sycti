@@ -40,7 +40,7 @@ $ext = explode('.', $_FILES['file']['name']);
 
 $dato = guardar($reporte,'dispositivos',$conn);
 
-$dir_subida = '../files/dis/'.$_POST["nombre"].".".$ext[1]; 
+$dir_subida = '../public/img/'.$_POST["nombre"].".".$ext[1]; 
 print_r($dir_subida);
 	$m =move_uploaded_file($_FILES['file']['tmp_name'], $dir_subida);
 	print_r($m);
