@@ -4,13 +4,13 @@
 	    <div class="col-md-12 col-sm-12 col-xs-12">
 	        <div class="x_panel">
 	          <div class="x_title">
-	            <h2>Empresas<small></small></h2>
+	            <h2>Dispositivos<small></small></h2>
 	            <div class="clearfix"></div>
 	          </div>
 	          <div class="x_content">
 	          	<div class="col-md-4 col-md-offset-1" >
 	          		<form action="models/nuevo_disp.php" method="POST" id="nuevo_disp" enctype="multipart/form-data">
-	          		<h3>Nueva Empresas:</h3>
+	          		<h3>Nuevo Dispositivo:</h3>
 	          		<div style="margin-bottom:0;padding-top: .5em;" class="col-md-12  col-xs-12 form-group has-feedback " >
 	                  <label style="text-align:left" class="control-label">Nombre del Dispositivo: </label>
 	                  <input name="nombre" type="text" placeholder="Nombre" aria-describedby="inputSuccess2Status4" class="form-control ">
@@ -31,7 +31,7 @@
 	          	</form>
 	          	</div>
 	          	<div class="col-md-4 col-md-offset-1">
-	          		<h3>Todas las Categorias</h3>
+	          		<h3>Todas los Dispositivos</h3>
 
 	          		<ul class="to_do">
 	          			<?php foreach ($cats as $cat) {  ?>
@@ -54,27 +54,11 @@
       <div class="modal-content">
         <div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
           <h4 id="myModalLabel2" style="text-align: center;font-weight:bold"
-            class="modal-title">Editar Categoria</h4>
+            class="modal-title">Dispositivo</h4>
         </div>
         <div style="" class="modal-body">
-          <form id="comentarioForm" action="models/actualiza_empresa.php" method="POST">
-			<div class="form-group has-feedback">
-				<strong id="catacti">Ingresa el nuevo nombre para la categoria: </strong>
-          		<input id="textarea"  name="nombre" class="form-control col-md-7 col-xs-12">
-			</div>  
-          	
-			<div class="form-group ">
-				<strong id="catacti">Ingresa el nuevo correo del encargado: </strong>
-          		<input id="encargado"  name="encargado" class="form-control col-md-7 col-xs-12">
-			</div>
-              <input type="hidden" name="id" id="valid">
-              <p class="text-center" style="margin-top:2em;padding-top: 1em;font-size: 1.5em;">Token : <strong id="tok"></strong></p>
-           
-              <div style="padding-top:1em;margin-top:2rem;" class="message_wrapper">
-                
-                <div style="text-align: center;" class="col-md-12"><button id="guardar" type="submit" class="btn btn-success">Guardar Cambios</button></div>
-              </div>
-          </form>
+        	<h3 id="valid" class="text-center"></h3>
+        	<img id="valid_img"  alt="" class="img-responsive" style="width: 200px; height: 200px;margin:2em auto" >
         </div>
       </div>
     </div>
@@ -101,7 +85,11 @@
 
 	function editar(th,t) {
 		
-		$('#valid').val(t);
+		$('#valid').html(t);
+		console.dir(document.getElementById('valid_img').src="files/dis/"+t+".jpg")
+
+		
+
 		
 		
 		$('#textarea').val(th.innerText);
